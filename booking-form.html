@@ -254,6 +254,16 @@
 										</div>
 										<div class="col-md-12 col-sm-12">
 											<div class="field-holder">
+												<label for="pay_offline">
+													<input type="radio" name="payment_type" id="pay_offline" checked value="Offline">Pay Offline
+												</label>
+												<label for="pay_online">
+													<input type="radio" name="payment_type" id="pay_online" value="PayPal">PayPal
+												</label>
+											</div>
+										</div>
+										<div class="col-md-12 col-sm-12">
+											<div class="field-holder">
 												<div class="car-list">
 													<select name="car_name" id="car_list" class="selectpicker">
 														<option value="">Select Car</option>
@@ -261,6 +271,15 @@
 														<option value="BMW Sedan" data-hrrate="40" data-dayrate="190">BMW Sedan</option>
 														<option value="Mercedes SUV" data-hrrate="65" data-dayrate="200">Mercedes SUV</option>
 														<option value="Renault Sedan" data-hrrate="20" data-dayrate="100">Renault Sedan</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12 col-sm-12">
+											<div class="field-holder">
+												<div class="select-list">
+													<select name="service_rate" id="rate_list" class="selectpicker">
+														<option value="default">Select Rate</option>
 													</select>
 												</div>
 											</div>
@@ -437,6 +456,7 @@
 		<script src="js/jquery.validate.min.js"></script> 
 		<script src="js/migrate.js"></script>  
 		<script src="js/color-switcher.js"></script>	
+		<script src="js/jquery.cookie.min.js"></script>
 		<script src="js/tweetie.js"></script> 
 		<script src="js/custom.js"></script> 
 		<!-- Js Files End --> 

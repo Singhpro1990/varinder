@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Prime Cab Documentation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Prime Cab Responsive Template Documentation">
+    
+        <!-- Loading CSS Files -->
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/help.css" rel="stylesheet">
+        <link href="assets/css/prism.css" rel="stylesheet">
+    </head>
+    
+    
+        
+    <body data-spy="scroll" data-target=".navbar" id="top">
+    
+        <!-- Navigation Start -->
+		
+		<div class="help-nav">
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Menu</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#overview">Prime Cab</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="#overview">Overview</a></li>
+							<li><a href="#slider">Slider</a></li>
+							<li><a href="#general">General</a></li>
+							<li><a href="#contact_form">Contact Form</a></li>
+							<li><a href="#book_form">Booking Form</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+        <!-- Navigation End -->
+
+		<!-- Main Section Start -->
+		<div class="container">
+			<!-- Brief Overview Section Start -->
+			<section id="overview">
+				<div class="intro-outer">
+					<h1>Prime Cab Documentation</h1>
+					<div class="intro-desc">
+						<p>Thank you very much for purchasing our theme. If you have any questions that are beyond the scope of this help file then please feel free to email us via our user page contact form. We will help you in the best possible way.</p>
+						<strong>Note: Demo images are not included in the theme package due to third party copyrights.</strong>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-sm-4">
+							<a href="https://themeforest.net/user/themesjungle#contact" class="btn btn-primary" target="_blank">Contact Us</a>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<a href="#changelog" role="button" class="btn btn-success " data-toggle="modal">Changelog</a>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<a href="#credits" role="button" class="btn btn-info" data-toggle="modal">Credits</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Brief Overview Section End -->
+
+				<!-- Slider Section Start -->
+				<section id="slider">
+					<div class="page-header">
+						<h1>Slider <small>Customization</small></h1>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<h3>Owl Slider</h3>
+							<p>The owl slider is used for displaying the slider on the homepage 2. You can customize the slider as per your needs. The slider code is located in <b>custom.js</b> file which is located inside the <b>js</b> folder.</p>
+							<pre>
+								<code class="language-javascript">
+									/* Owl Slider For Home 2 Cab Slider
+									======================================================*/
+									if ($('#cab-slider').length) {
+										$('#cab-slider').owlCarousel({
+											loop:true,
+											dots: false,
+											nav:true,
+											navText:'',
+											items:1,
+											autoplay:true,
+											smartSpeed:1000,
+											responsiveClass:true,
+											responsive:{
+												0:{
+													items:1,
+													nav:false,
+													dots:true,
+												},
+												768:{
+													items:1,
+												},
+												992:{
+													items:1,
+												},
+												1199:{
+													items:1,
+												}
+											}
+										});
+									}
+								</code>
+							</pre>
+							<hr>
+							<h3>Slick Slider</h3>
+							<p>The slider used on the fleet detail page is a Slick slider which is customized to create a thumbnail slider. You can customize the slider configuration as per your needs. You can customize the Slick slider by reading their documentation at this <a href="http://kenwheeler.github.io/slick/" target="_blank">link</a>. The slider code is located in <b>custom.js</b> file which is located inside the <b>js</b> folder.</p>
+							
+							<pre>
+								<code class="language-javascript">
+									/* Gallery Carousel Script
+									======================================================*/
+										
+									if($(".gallery-thumb").length && $(".gallery").length){
+										var right = $(".right-outer");
+										var gal_thumb = $(".gallery-thumb");
+										var gal = $(".gallery");
+
+										gal_thumb.slick({
+											rows: 0,
+											slidesToShow: 2,
+											draggable: false,
+											useTransform: false,
+											mobileFirst: true,
+											responsive: [
+											{
+											  breakpoint: 768,
+											  settings: {
+												slidesToShow: 3
+											  }
+											},
+											{
+											  breakpoint: 1023,
+											  settings: {
+												slidesToShow: 1,
+												vertical: true
+											  }
+											}
+										  ]
+										});
+
+										gal.slick({
+											rows: 0,
+											useTransform: false,
+											arrows: true,
+											fade: true,
+											autoplay: true,
+											speed:600,
+											cssEase: 'ease-in-out',
+											asNavFor: gal_thumb,
+										
+										});
+										$(".gallery-thumb .item").on("click", function() {
+											var index = $(this).attr("data-slick-index");
+											gal.slick("slickGoTo", index);
+										});
+									}
+									function getCarouselHeight() {
+										if($(".gallery-thumb").length && $(".gallery").length){
+											if (window.matchMedia("(min-width: 1024px)").matches) {
+												var galHeight = $(".gallery").height();
+												right.css("height", galHeight);
+											} else {
+												right.css("height", "auto");
+											}
+										}else{
+											return;
+										}
+									}
+
+									$(window).on("load",function() {
+										getCarouselHeight();
+									});
+								</code>
+							</pre>
+						</div>
+					</div>
+				</section>
+				<!-- Slider Section End -->
+				<hr />
+
+				<!-- General Section Start -->
+				<section id="general">
+					<div class="page-header">
+						<h1>General <small>Styles Customization And Tweaks</small></h1>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-sm-4">
+							<h3>Sticky Navigation</h3>
+							<p>A class with name 'sticky' is added to the header navigation on scrolling. You can change sticky navigation function as per your needs by going to the file <b>custom.js</b> which you can find in the <b>js</b> folder.</p>
+						</div>
+
+						<div class="col-md-9 col-sm-8">
+
+							<h4>js/custom.js</h4>
+							<pre>
+								<code class="language-javascript">
+									/* Sticky Navigation
+									======================================================*/
+									if( $('.tj-nav-row').length ){
+										var stickyNavTop = $('.tj-nav-row').offset().top;
+										var stickyNav = function(){
+											var scrollTop = $(window).scrollTop();
+											if (scrollTop > 500) { 
+												$('.tj-nav-row').addClass('sticky');	
+											} else {
+												$('.tj-nav-row').removeClass('sticky'); 
+											}
+										};
+										stickyNav();
+										$(window).scroll(function() {
+											stickyNav();
+										});
+									}
+								</code>
+							</pre>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-3 col-sm-4">
+							<h3>Main Menu</h3>
+							<p>Basic Navigation/Menu Structure of website. You can set or change the menu links as per your needs. In the following example not all menu links are shown.</p>
+						</div>
+						<div class="col-md-9 col-sm-8">
+							<pre>
+								<code class="language-markup">
+									&lt;!--Menu Holder Start--&gt;
+									 &lt;nav class="navbar navbar-default"&gt; 
+										&lt;div class="navbar-header"&gt;
+										  &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tj-navbar-collapse" aria-expanded="false"&gt; 
+											  &lt;span class="sr-only"&gt;Menu&lt;/span&gt;
+											  &lt;span class="icon-bar"&gt;&lt;/span&gt; 
+											  &lt;span class="icon-bar"&gt;&lt;/span&gt; 
+											  &lt;span class="icon-bar"&gt;&lt;/span&gt;
+										  &lt;/button&gt;
+										&lt;/div&gt;
+										&lt;!-- Navigation Content Start --&gt;
+										&lt;div class="collapse navbar-collapse" id="tj-navbar-collapse"&gt;
+										  &lt;ul class="nav navbar-nav"&gt;
+											 &lt;li class="dropdown"&gt; &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"&gt;Home&lt;i class="fa fa-angle-down" aria-hidden="true"&gt;&lt;/i&gt;lt;/a&gt;
+												&lt;ul class="dropdown-menu"&gt;
+													&lt;li&gt;&lt;a href="home-1.html"&gt;Homepage 01&lt;/a&gt;&lt;li&gt;
+													&lt;li&gt;&lt;a href="home-2.html"&gt;Homepage 02&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href="home-3.html"gt;Homepage 03&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href="aboutus.html"&gt;Aboutus&lt;/a&gt;
+											&lt;/li&gt;
+											&lt;li class="dropdown"&gt; &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"&gt;Services&lt;i class="fa fa-angle-down" aria-hidden="true"&gt;&lt;/i&gt;&lt;/a&gt;
+												&lt;ul class="dropdown-menu"&gt;
+													&lt;li&gt;&lt;a href="services.html"&gt;Our Services&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+										  &lt;/ul&gt;
+										&lt;/div&gt;
+										&lt;!-- Navigation Content End --&gt;
+									&lt;/nav&gt;
+									&lt!--Menu Holder End--&gt;
+								</code>
+							</pre>
+						</div>
+					</div>
+				<hr/>
+        
+				<div class="row">
+					<div class="col-md-3 col-sm-4">
+						<h3>Changing Fonts</h3>
+						<p>Currently Google fonts are used. If you want to change or use any other Google font then you can link the new google in the CSS file and use it accordingly.</p>
+					</div>
+				
+					<div class="col-md-9 col-sm-8">
+						<pre>
+							<code class="language-css">
+								@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Open+Sans:400,600,700|Yellowtail');
+								/* Add Font Family */
+								body{
+									font-family:'Open Sans'; /* For Body */
+								}
+								h1,h2,h3{
+									font-family:'Montserrat'; /* For Headings */
+								}
+							</code>
+						</pre>
+					</div>
+				</div>
+				<hr />           
+		
+		
+				 <div class="row">
+					<div class="col-md-3 col-sm-4">
+						<h3>Color Scheme</h3>
+						<p>There is a separate color scheme file with name <b>color.css</b> which is located in the <b>css</b> folder. You can change color scheme as per needs. The color scheme will be applied on all sections where primary color <b>#dd3751</b> is applied.</p>
+					</div>
+					<div class="col-md-9 col-sm-8">
+						<pre>
+							<code class="language-css">
+								&lt;!-- Color Scheme CSS File --&gt;
+								&lt;link href="css/color.css" rel="stylesheet"&gt;
+							</code>
+						</pre>
+					</div>
+				</div>
+				<hr />
+ 
+        
+				<div class="row">
+					<div class="col-md-3 col-sm-4">
+						<h3>Google Map</h3>
+						<p>There are two google maps which are displayed on the website. The code of these maps can be found in the <b>maps.js</b> file which is located inside the <b>js</b> folder. You can customize the styles of the map using the <a href="https://snazzymaps.com/" target="_blank">Snazzy Maps</a>. Here only one map Javascript code is shown in the example.</p>
+					</div>
+			
+					<div class="col-md-9 col-sm-8">
+						<pre>
+							<code class="language-javascript">
+							// Display our google map when window is loaded
+							google.maps.event.addDomListener(window, 'load', init);
+							function init() {
+								var mapOptions = {
+								// Set zoom level for the map
+								zoom: 11,
+
+								// Set latitude and longitude to center the map 
+								center: new google.maps.LatLng(40.6700, -73.9400), // New York
+
+								//Set map style for your map
+								styles:[{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#419d8c"},{"lightness":"-43"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#419d8c"},{"lightness":"-70"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#419d8c"},{"lightness":"-17"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#419d8c"},{"lightness":"-66"},{"weight":1.2}]},{"featureType":"administrative","elementType":"labels.text","stylers":[{"lightness":"-63"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"lightness":"43"},{"color":"#419d8c"}]},{"featureType":"administrative","elementType":"labels.text.stroke","stylers":[{"color":"#419d8c"},{"lightness":"-69"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#419d8c"},{"lightness":"-51"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#419d8c"},{"lightness":"-54"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#419d8c"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#419d8c"},{"lightness":"-23"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#419d8c"},{"lightness":"-66"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#419d8c"},{"lightness":"-62"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#419d8c"},{"lightness":"-70"},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#419d8c"},{"lightness":"-60"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#419d8c"},{"lightness":"-54"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#419d8c"},{"lightness":"-59"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#419d8c"},{"lightness":"-61"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#419d8c"},{"lightness":"-45"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"color":"#419d8c"},{"lightness":"-62"}]}]
+							};
+
+							// Get the HTML DOM element that will contain your map 
+							var mapElement = document.getElementById('tj-map');
+							if( mapElement!==null ){
+								// Create the Google Map using our element and options defined above
+								var map = new google.maps.Map(mapElement, mapOptions);
+
+								// Add marker to your map
+								var marker = new google.maps.Marker({
+									position: new google.maps.LatLng(40.6700, -73.9400),
+									map: map,
+									title: 'Find Us',
+									icon: 'images/map-marker.png'
+								});
+								marker.setAnimation(google.maps.Animation.BOUNCE);
+							}
+								
+						}
+							</code>
+						</pre>
+					</div>
+						
+				</div>
+				<hr />
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12"> 
+						<h3>Setup Twitter Feeds</h3>
+						<p>In order to display twitter feeds in the footer. You need to setup twitter account. After setting twitter account you need to get twitter API keys of your account. Recently twitter has changed its policy and now user should have a approved twitter developer account to get access to twitter account API keys. To get your twitter account API keys, please follow instructions at this <a href="https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens.html" target="_blank">link</a> which also highlights the twitter latest policy for accessing twitter account API keys. Once you have get your twitter account API keys please edit the <b>config.php</b> which is located at the <b>js/api</b> path.</p>
+						<pre>
+							<code class="language-php">
+								// Consumer Key
+								define('CONSUMER_KEY', '');
+								define('CONSUMER_SECRET', '');
+
+								// User Access Token
+								define('ACCESS_TOKEN', '');
+								define('ACCESS_SECRET', '');
+							</code>
+						</pre>
+						<p> Once you have added your twitter API keys in the <b>config.php</b> file the next step is to edit the <b>custom.js</b> file which is located inside the <b>js</b> folder. In the following code you can add your twitter account username and configure the settings as per your needs.</p>
+						<pre>
+							<code class="language-javascript">
+								/* Twitter Feed Script
+								======================================================*/
+								if ($('.tj-tweets').length) {
+									$('.tj-tweets').twittie({
+										username: 'Place your username',
+										dateFormat: '%b, %d, %Y',
+										template: '{{tweet}}} <div class="date">{{date}}</div>',
+										count: 2,
+										loadingText: 'Loading!'
+									});
+								}
+							</code>
+						</pre>
+					</div>
+				</div>
+				<hr>
+				
+				<div class="row">
+					<div class="col-md-12 col-sm-12"> 
+						<h3>Setup Mailchimp Newsletter Subscription</h3>
+						<p>The newsletter subscription widget is added in the <b>blog-detail.html</b> sidebar page. The newly added mailchimp subscription feature is fully GDPR compliance. We have added a new page with name <b>policy.html</b> with some placeholder text so you can add your company policy content accordingly. In order to integrate mailchimp newsletter subscription feature on your website simply you need to add your mailchimp <b>API Key</b> and <b>List ID</b> of that mailchimp list to which you want your customers to subscribe. In order to get your mailchimp API Key follow steps mentioned in this <a href="https://mailchimp.com/help/about-api-keys/" target="_blank">link</a>. To get your mailchimp List ID which is also called Audience ID follow steps at this <a href="https://mailchimp.com/help/find-audience-id/" target="_blank">link</a>. After that go to this path <b>mailchimp/subscribe.php.</b> You will find the following code. You can configure your Mailchimp <b>API Key</b> and <b>List ID</b> and that is it all done have fun :) no further action is required if you have added your API Key and List ID correctly.</p>
+						<pre>
+							<code class="language-php">
+								// Add your mailchimp API key which you can get from your mailchimp account under Account > Extras > API keys
+								// Example: 91d65090be59392d88951e9b160f3111-xyz
+								define('API_KEY', '91d65090be59392d88951e9b160f3111-xyz');
+
+								// Add mailchimp list id to which you want user to subscribe
+								// Example: 63c3d4f789
+								define('LIST_ID', '63c3d4f789');
+							</code>
+						</pre>
+						<p> If you want to place the Mailchimp newsletter subscription widget in the footer then that is also very easy. Simply edit the <b>blog-detail.html</b> page and find the following HTML code.<strong> Note: The newsletter widget code in the footer must be wrapped like other widgets in Bootstrap class col-md-3</strong>.</p>
+						
+						<pre>
+							<code class="language-markup">
+								&lt;div class="mailchimp widget"&gt;
+									&lt;div class="widget-subcribe">
+										&lt;h3&gt;Subscribe Newsletter&lt;/h3&gt;
+										&lt;form id="newsletter_frm" method="POST" class="tj-subscribe-form"&gt;
+											&lt;div class="inner-holder"&gt;
+												&lt;input placeholder="Enter Email" type="email" name="subscribe_email" class="subscribe_email"/&gt;
+												&lt;label&gt;
+													&lt;input type="checkbox" name="agree_terms" id="terms" value="yes"checked/&gt;
+													&lt;strong&gt;&lt;a href="#"&gt;Agree our terms &amp; conditions&lt;/a&gt;&lt;/strong&gt;
+												&lt/label&gt;
+											&lt;/div&gt;
+											&lt;div class="inner-holder"&gt;
+												&lt;button id="newsletter_btn" class="btn-submit" type="submit"&gt;&lt;i class="far fa-paper-plane"&gt;&lt;/i&gt;&lt;/button&gt;
+											&lt;/div&gt;
+										&lt;/form&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+							</code>
+						</pre>
+					</div>
+				</div>
+		   
+			</section> 
+			<!-- General Section End -->
+			<hr />
+	
+			<!-- Contact Form Section Start -->
+			<section id="contact_form">  
+				<div class="page-header">
+					<h1>Contact Form <small>Configuration</small></h1>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-sm-4">
+						<h3>Contact Form</h3>
+						<p>Update <b>contact/process.php</b> and change the email address and other settings where you want to receive the emails. <b>No other action is required!</b></p>
+					</div>
+					<div class="col-md-9 col-sm-8">
+						<pre>
+							<code class="language-php">
+								// Add Recipient email address to which email message will be sent.
+								// Example: sarah@example.com
+								define('TO_EMAIL', '');	
+							</code>
+						</pre>
+					</div>
+				</div>
+			</section>   
+			<!-- Contact Form Section End -->   
+			<!-- Booking Form Section Start -->
+			<section id="book_form">  
+				<div class="page-header">
+					<h1>Ride Booking Form <small>Configuration</small></h1>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-sm-4">
+						<h3>Ride Booking Form</h3>
+						<p>Update <b>contact/ride-booking.php</b> and change the email address and other settings where you want to receive the customer ride booking confirmation emails. <b>No other action is required!</b></p>
+					</div>
+					<div class="col-md-9 col-sm-8">
+						<pre>
+							<code class="language-php">
+								// Leave it empty if it not works with your hosting server
+								define('FROM_EMAIL', '');
+								// Add Recipient email address to which email message will be sent.
+								// Example: sarah@example.com
+								define('TO_EMAIL', '');	
+							</code>
+						</pre>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<p> We strongly recommended you not to remove or change CSS classes or unique identifer for <strong>Booking Form and Booking Summary sections</strong> as these are referenced in the Javascript file with name <strong>custom.js</strong>. If you need to add additional CSS classes for any styling tweaks then you can do that as they will not conflict with classes used in sections and it is a strongly recommended appproach and should be used for all sections of template. You can customize or tweak the Booking Form script to implement your custom workflow if you have development knowledge. The code for Booking Form script is placed in <strong>custom.js</strong> file. In tweaking booking form code in Javascript file we will recommend you to take backup of orignal file before playing with the code. </p>
+						<p><strong>Note:</strong> The custom Javascript code in <strong>custom.js</strong> file for booking form might change in the future depending upon on the new feature which is added in the template and is linked with the booking form. Although we will still ensure that the change will not have any impact.</p>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<h3>PayPal Configuration</h3>
+						<p>If you want to configure PayPal with the booking form then please edit the file <strong>functions.php</strong> located at <strong>paypal/functions.php</strong> path. For PayPal integration we are using the Payment Data Transfer (PDT) which is a secure method for to retreive the details about a PayPal transaction and display them to  customer. To get PDT authentication token please follow instructions at this <a href="
+https://developer.paypal.com/docs/paypal-payments-standard/integration-guide/paymentdatatransfer/">link</a>.</p>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<pre>
+							<code class="language-php">
+								 // Get authentication token from your PayPal account
+								define('AUTH_TOKEN', '');
+
+								// Note: Hosting servers can block sending emails with custom From field because of spam.
+								// Leave it empty if it not works with your hosting server
+								define('FROM_EMAIL', '');
+
+								// Add Recipient email address to which email message will be sent.
+								// Example: sarah@example.com
+								define('TO_EMAIL', ''); 
+							</code>
+						</pre>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<p>If you want to change the PayPal mode to <strong>Sandbox</strong> or <strong>Live</strong> then please edit the <strong>custom.js</strong> file which is located at <strong>js/custom.js</strong> path. Edit the <strong>custom.js</strong> file and go to line number <strong>956 </strong> or search the following code. If you want to change the PayPal business email address then please go to line number <strong>973</strong> or search the below code in the <strong> custom.js</strong> file.
+						<pre>
+							<code class="language-javascript">
+								//Change PayPal Mode(Sandbox URL https://www.sandbox.paypal.com/ or Live URL https://www.paypal.com/)
+								var action = "https://www.sandbox.paypal.com/";
+								//Set merchant business email change it accordingly
+								var merchant_business_email = 'sb-l6r7o592684@business.example.com';
+							</code>
+						</pre>
+						<p>For your easiness we are also sharing complete code of PayPal integration which is located in <strong>custom.js</strong> file.</p>
+						<pre>
+							<code class="language-javascript">
+							else if( method_type==='PayPal' ){
+								//Declare variables
+								var ride_booking_info = '';
+								var booking_info ='';
+								//Change PayPal Mode(Sandbox URL https://www.sandbox.paypal.com/ or Live URL https://www.paypal.com/)
+								var action = "https://www.sandbox.paypal.com/";
+						
+								//Delete Booking Saved Data From Local Storage
+								sessionStorage.removeItem("book_ref"); 
+								sessionStorage.removeItem("start_loc"); 
+								sessionStorage.removeItem("end_loc"); 
+								sessionStorage.removeItem("pickup_date"); 
+								sessionStorage.removeItem("pickup_time"); 
+								sessionStorage.removeItem("dropoff_date"); 
+								sessionStorage.removeItem("dropoff_date"); 
+								sessionStorage.removeItem("dropoff_time"); 
+								sessionStorage.removeItem("service_type"); 
+								sessionStorage.removeItem("trip_time"); 
+								sessionStorage.removeItem("selected_car"); 
+								
+								//Set merchant business email change it accordingly
+								var merchant_business_email = 'sb-l6r7o592684@business.example.com';
+								//Fetch buyer email address
+								var email_add = $('#rider-info input[name="email_id"]').val();
+								var fname = $('#rider-info input[name="fname"]').val();
+								var lname = $('#rider-info input[name="lname"]').val();
+								var email = $('#rider-info input[name="email_id"]').val();
+								var phone_num = $('#rider-info input[name="phone_num"]').val();
+								ride_booking_info = service_type+" "+start_loc+" "+pickup_date+" "+pickup_time+" "+end_loc+" "+dropoff_date+" "+dropoff_time;
+								//Passing complete booking info for invoice and sending email
+								booking_info = 'Ride booked from '+start_loc+" on "+pickup_date+" at "+pickup_time+" to "+end_loc+", ends at "+dropoff_date+" on "+dropoff_time;
+								//Set rider and booking info in PayPal form hidden input fields
+								$('#paypal_frm input[name="business"]').val(merchant_business_email);
+								$('#paypal_frm input[name="item_name"]').val(ride_booking_info);
+								$('#paypal_frm input[name="item_number"]').val(book_ref);
+								$('#paypal_frm input[name="amount"]').val(trip_cost);
+								$('#paypal_frm input[name="custom"]').val(booking_info);
+								$('#paypal_frm input[name="os0"]').val(fname+" "+lname);
+								$('#paypal_frm input[name="os1"]').val(email);
+								$('#paypal_frm input[name="os2"]').val(phone_num);
+								$('#paypal_frm input[name="os3"]').val(trip_time);
+								$('#paypal_frm input[name="os4"]').val(ride_car);
+								$('#paypal_frm').attr('action',action).submit();
+						
+							}
+							</code>
+						</pre>
+						<p>If you want to find or explore the PayPal form HTML code then please edit the file <strong>confirm-booking.php</strong> and you will find the following PayPal form code as shown below.</p>
+						<pre>
+							<code class="language-markup">
+								<!-- Start PayPal Form Section -->
+								&lt;form action="" method="POST" id="paypal_frm"&gt;
+									&lt;input type="hidden" name="cmd" value="_ext-enter"&gt;
+									&lt;input type="hidden" name="redirect_cmd" value="_xclick"&gt;
+									&lt;input type="hidden" name="business" value=""&gt;
+									&lt;input type="hidden" name="item_name" value=""&gt;
+									&lt;input type="hidden" name="item_number" value=""&gt;
+									&lt;input type="hidden" name="amount" value=""&gt;
+									&lt;input type="hidden" name="currency_code" value="USD"&gt;
+									&lt;input type="hidden" name="cancel_return" value=" echo $_SERVER['HTTP_REFERER'];"&gt;
+									&lt;input type="hidden" name="custom" value=""&gt;
+									&lt;input type="hidden" name="on0" value="Rider Name:"&gt;
+									&lt;input type="hidden" name="os0" value=""&gt;
+									&lt;input type="hidden" name="on1" value="Rider Email:"&gt;
+									&lt;input type="hidden" name="os1" value=""&gt;
+									&lt;input type="hidden" name="on2" value="Rider Phone:"&gt;
+									&lt;input type="hidden" name="os2" value=""&gt;
+									&lt;input type="hidden" name="on3" value="Trip Estimation:"&gt;
+									&lt;input type="hidden" name="os3" value=""&gt;
+									&lt;input type="hidden" name="on4" value="Selected Ride Car:"&gt;
+									&lt;input type="hidden" name="os4" value=""&gt;
+								&lt;/form&gt;
+								<!-- End PayPal Form Section -->
+							</code>
+						</pre>
+						<p>For ride rate calculaton, if you want to change the calculation criteria or explore its code then please again edit the <strong>custom.js</strong> file which is located at <strong>js/custom.js</strong>. The code below is used for ride calculation for PayPal.</p>
+						<pre>
+							<code class="language-javascript">
+							if( method_type==='PayPal' ){
+								tripTime = days + " days, " + hrs + " hours, " + mins + " minutes";
+								sessionStorage.setItem('trip_time', tripTime);
+								if( sel_rate_class === 'hr_rate' ){
+									if( hrs > 0 ){
+										tripCost = sel_rate*hrs;
+									}
+									if( mins >= 30 && mins <=59 ){
+										tripCost= tripCost+parseInt(sel_rate);
+									}else if( mins > 0 && mins <= 29 ){
+										half_hr_rate = Math.floor(sel_rate/2);
+										tripCost= tripCost+half_hr_rate;
+									}
+									if( days > 0 ){
+										day_rate = $('#rate_list .day_rate').val();
+										tripCost = tripCost+(day_rate*days);
+									}
+								}else if( sel_rate_class === 'day_rate' ){
+									if( days > 0 ){
+										tripCost = sel_rate*days;
+										if( hrs > 0 ){
+											hour_rate = $('#rate_list .hr_rate').val();
+											tripCost = tripCost+(hour_rate*hrs);
+										}
+										if( mins >= 30 && mins <= 59 ){
+											tripCost = tripCost+hour_rate;
+										}else if( mins > 0 && mins <= 29 ){
+											half_hr_rate = Math.floor(hour_rate/2);
+											tripCost = tripCost+half_hr_rate;
+										}
+									}else{
+										if( days===0 ){
+											alert("You have selected day rate. Select atleast 1 day duration for ride booking!");
+											return false;
+										}
+									}
+								}
+								sessionStorage.setItem('trip_cost',tripCost);
+								$.cookie("order_summary",summary_html);
+								//Redirect Form to another page for booking confirmation
+								window.location.href = "confirm-booking.php";	
+							}
+							</code>
+						</pre>
+						<p>The following HTML code for selecting car vehicle is located inside the <b>booking-form.html</b> file. You can add more cars in the list or even change them as per your requirements. You only have to set its hourly and day rate. HTML data attributes <b>data-hrrate</b> and <b>data-dayrate</b> are used to set hourly and day rates for vehicle. Please don't change the name of data attributes as they are being used in <b>custom.js</b> file located inside folder <b>js</b>. You can simply copy the existing option to add a new car option, set its <b>data-hrrate</b> (hourly rate) and <b>data-dayrate</b> (day rate) and it will automatically do the ride fare calculation based on the given values which makes it more flexible. The car name will also be passed to PayPal during paid booking and will be available inside the customer transaction detail when admin will access its PayPal account.</p>
+						<pre>
+							<code class="language-markup">
+								&lt;select name="car_name" id="car_list" class="selectpicker"&gt;
+									&lt;option value=""&gt;Select Car&lt;/option&gt;
+									&lt;option value="Nissan Vela" data-hrrate="30" data-dayrate="150"&gt;Nissan Vela&lt;/option&gt;
+									&lt;option value="BMW Sedan" data-hrrate="40" data-dayrate="190"&gt;BMW Sedan&lt;/option&gt;
+									&lt;option value="Mercedes SUV" data-hrrate="65" data-dayrate="200"&gt;Mercedes SUV&lt;/option&gt;
+									&lt;option value="Renault Sedan" data-hrrate="20" data-dayrate="100"&gt;Renault Sedan&lt;/option&gt;
+								&lt;/select&lt;
+							</code>
+						</pre>
+						<p>The following code is of rate list which you will find in <b>booking-form.html</b> file. The code will be used to dynamically add the hourly and day rates options based on the vehicle selection. The rate selected from the list will be used for ride fare calculation and will be required to pay for ride booking via PayPal.</p>
+						<pre>
+							<code class="language-markup">
+								&lt;select name="service_rate" id="rate_list" class="selectpicker"&gt;
+									&lt;option value="default">Select Rate&lt;/option&gt;
+								&lt;/select&gt;
+							</code>
+						</pre>
+						
+						<p>A PayPal receipt which is shown to the customer once the ride is booked successfully can also be tweaked or changed if you have development experience. If you want to explore or tweak the PayPal receipt code then please edit the <strong>payment-confirmation.php</strong> file and you can change it as per your requirements.</p>
+						<p>If you want to change the text <strong>"Thank you for using Prime Cab"</strong> then please edit the file <strong>payment-confirmation.php</strong> file and find the above text and change it accordingly.</p>
+						<p><strong>Note:</strong> We have bundled <strong>2 versions</strong> of Prime Cab in the upcoming update. One package is a <strong>simple version</strong> which do not includes paypal integration and includes standard booking form for ride booking. The other package is a <strong>PayPal version</strong> which includes paypal integration with the booking form and also includes new exciting features.</p>
+					</div>
+				</div>
+			</section>   
+			<!-- Booking Form Section End -->  
+            <footer class="copyright">
+                <p>&copy Prime Cab 2018 Copyrights Reserved</p>
+            </footer>
+        </div>
+        <!-- Main Section Start -->
+         
+        
+        <!-- Version History Section Start -->
+		<div class="modal fade" id="changelog" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Version History</h4>
+					</div>
+					<div class="modal-body">
+						<p><b>Initial Release Version 1.0</b></p>
+						<p><b>Update Version 1.01 (Date:10-12-2018)</b></p>
+						<p><b>Update Version 1.02 (Date:6-1-2019)</b></p>
+						<p><b>Update Version 1.03 (Date:20-1-2019)</b></p>
+						<p><b>Update Version 1.04 (Date:24-3-2019)</b></p>
+						<p><b>Update Version 1.05 (Date:30-6-2019)</b></p>
+						<p><b>Update Version 1.06 (Date:05-10-2019)</b></p>
+						<p><b>Update Version 1.2 (Date:13-04-2020)</b></p>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- Version History Section End -->
+        
+        <!-- Javascript Section Start -->
+		<div class="modal fade" id="credits" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Credits / Reference Libraries</h4>
+					</div>
+					<div class="modal-body">
+						<ol>
+							<li><b>Bootstrap</b></li>
+							<li><b>Isotope</b></li>
+							<li><b>Slick Slider</b></li>
+							<li><b>Tweetie</b></li>
+							<li><b>Owl Slider</b></li>
+							<li><b>JQuery UI</b></li>
+							<li><b>Waypoints</b></li>
+							<li><b>Counterup</b></li>
+							<li><b>Google Map</b></li>
+							<li><b>Moment JS (Datepicker)</b></li>
+							<li><b>Bootstrap Datetime Picker</b></li>
+							<li><b>Images Loaded</b></li>
+						</ol>
+						<h3 class="thank-you">Thank You For Reading</h3>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- Javascript Section End -->
+        
+       
+
+        <!-- Loading Javascript Files -->
+		<script src="assets/js/jquery-1.12.5.min.js"></script> 
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/prism.js"></script>
+    </body>
+</html>
