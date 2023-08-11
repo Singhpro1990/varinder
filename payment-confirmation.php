@@ -1,3 +1,12 @@
+<?php
+
+	// Prevent direct access to file
+	if(!isset($_SERVER['HTTP_REFERER'])){
+		die('<h1>Direct File Access Restricted!</h1>');
+	}
+	// Include utility functions
+	require_once('paypal/functions.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +17,6 @@
 
         <!-- Css Files Start -->
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/fontawesome-all.min.css" rel="stylesheet">
 		<link id="switcher" href="css/color.css" rel="stylesheet">
@@ -175,7 +183,7 @@
 			<!--Inner Banner Section Start-->
 	    	<div class="tj-inner-banner">
 	    		<div class="container">
-	    			<h2>Booking Form</h2>
+	    			<h2>Payment</h2>
 	    		</div>
 	    	</div>
 			<!--Inner Banner Section End-->
@@ -185,123 +193,253 @@
 				<div class="container">
 					<ul class="breadcrumb-list">
 						<li><a href="home-1.html">Home</a></li>
-						<li class="active">Booking Form</li>
+						<li><a href="booking-form.html">Booking Form</a></li>
+						<li><a href="confirm-booking.html">Confirm Booking</a></li>
+						<li class="active">Payment</li>
 					</ul>
 				</div>
 	    	</div>
 			<!--Breadcrumb Section End-->	
 			
 			<!--Booking Form Section Start-->	
-			<section class="tj-booking-frm">
+			<section class="tj-payment">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<div class="tj-tabs">
-								<ul class="nav nav-tabs" role="tablist">
-									<li class="active"><a href="#point" data-toggle="tab">Point to Point</a></li>
-								</ul>
-							</div>
-							<div class="tab-content">
-								<div class="tab-pane active" id="point">
-									<form class="booking-frm" method="POST" id="ride-bform">
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<label for="one_way">
-													<input type="radio" name="service_type" id="one_way" checked value="One Way Journey">One Way
-												</label>
-												<label for="two_way">
-													<input type="radio" name="service_type" id="two_way" value="Two Way Journey">Two Way
-												</label>
+						<div class="col-md-12 col-sm-12">
+							<div class="invoice-content">
+								<div class="row">
+									<div class="col-md-12 col-sm-12">
+									<?php
+									
+									// Declare variables
+									$booking_info = array();
+									$rider_name = '';
+									$trip_info = '';
+									$booking_id = '';
+									$transaction_id = '';
+									$payment_status = '';
+									$ride_amount = '';
+									$ride_amount_curr = '';
+									$payment_date = '';
+									$payer_email = '';
+									$trip_note = '';
+									$browser_info = '';
+									$trip_duration = '';
+									$ride_car = '';
+
+									
+									// Change to www.paypal.com to switch to live mode
+									$pp_hostname = "www.sandbox.paypal.com"; 
+									// Read the post from PayPal system and add 'cmd'
+									$req = 'cmd=_notify-synch';
+									// Get transaction detail returned by Paypal
+									$tx_token = $_GET['tx'];
+									
+									$auth_token = AUTH_TOKEN;
+									$req .= "&tx=$tx_token&at=$auth_token";
+									// Setup CURL request for transaction verification
+									$ch = curl_init();
+									curl_setopt($ch, CURLOPT_URL, "https://$pp_hostname/cgi-bin/webscr");
+									curl_setopt($ch, CURLOPT_POST, 1);
+									curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+									curl_setopt($ch, CURLOPT_TIMEOUT, 180);
+									curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
+									curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+									curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+									curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: $pp_hostname"));
+									$transaction_result = curl_exec($ch);
+									$error = curl_error($ch); // Store errors
+									curl_close($ch);
+									if(!$transaction_result){
+										echo ("<h4 class='invoice-error'>Server Response".$error.". Please try again or contact website administrator!</h4>");
+									}else{
+										// Parse the data
+										$lines = explode("\n",trim($transaction_result));
+										if (strcmp ($lines[0], "SUCCESS") == 0) {
+											for ($i = 1; $i < count($lines); $i++) {
+												$temp = explode("=", $lines[$i],2);
+												$booking_info[urldecode($temp[0])] = urldecode($temp[1]);
+											}
+											// Fetch booking transaction info
+											$firstname = $booking_info['first_name'];
+											$lastname = $booking_info['last_name'];
+											$trip_info = $booking_info['item_name'];
+											$trip_note = $booking_info['custom'];
+											$booking_id = $booking_info['item_number'];
+											$transaction_id = $booking_info['txn_id'];
+											$ride_amount = $booking_info['payment_gross'];
+											$payment_status = $booking_info['payment_status'];
+											$payment_date = $booking_info['payment_date'];
+											$payer_email = $booking_info['payer_email'];
+											$ride_amount_curr = $booking_info['mc_currency'];
+											$rider_name = $booking_info['option_selection1'];
+											$rider_email = $booking_info['option_selection2'];
+											$rider_phone = $booking_info['option_selection3'];
+											$trip_duration = $booking_info['option_selection4'];
+											$ride_car = $booking_info['option_selection5'];
+											
+										}
+                         
+								?>
+									<!--Start Invoice Content-->
+									<div class="invoice-outer">
+										<?php if( !empty($booking_id) ){ ?>
+											<div class="invoice-title">
+												<h2>Invoice</h2>
+												<h3>Booking # <?php echo $booking_id; ?></h3>
 											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Picking Up</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input id="point_start_loc" type="text" name="pickup_loc" placeholder="Pickup Location">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="pickup_date" placeholder="Select your Date" id="pickup_date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="pickup_time" placeholder="Select Timings" id="pickup_time">
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Dropoff</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input type="text" id="point_end_loc" name="dropoff_loc" placeholder="Pickup Location">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="dropoff_date" id="dropoff_date" placeholder="Select your Date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="dropoff_time" placeholder="Select Timings" id="dropoff_time" >
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<div class="car-list">
-													<select name="car_name" id="car_list" class="selectpicker">
-														<option value="">Select Car</option>
-														<option value="Nissan Vela" data-hrrate="30" data-dayrate="150">Nissan Vela</option>
-														<option value="BMW Sedan" data-hrrate="40" data-dayrate="190">BMW Sedan</option>
-														<option value="Mercedes SUV" data-hrrate="65" data-dayrate="200">Mercedes SUV</option>
-														<option value="Renault Sedan" data-hrrate="20" data-dayrate="100">Renault Sedan</option>
-													</select>
+										<?php } ?>
+											<hr>
+											<!--Start Payment Info-->
+											<div class="payment-info">
+												<div class="row">
+													<div class="col-sm-6 col-md-6">
+														<div class="invoice-info">
+														<?php if( !empty($payer_email) ){?>
+															<span>Payer Email</span>
+															<strong><?php echo $payer_email; ?></strong>
+														<?php } if( !empty($transaction_id) ){ ?>
+															<span>Transaction ID</span>
+															<strong><?php echo $transaction_id; ?></strong>
+														<?php } if( !empty($ride_amount) ){ ?>
+															<span>Amount Paid</span>
+															<strong><?php echo $ride_amount.' '.$ride_amount_curr; ?></strong>
+														<?php } if( !empty($payment_status) ){ ?>
+															<span>Payment Status</span>
+															<strong><?php echo $payment_status; ?></strong>
+														<?php } ?>
+														</div>
+													</div>
+													<div class="col-sm-6 col-md-6">
+														<div class="user-invoice-info">
+														<?php if( !empty($payment_date) ){?>
+															<span>Payment Date</span>
+															<strong><?php echo $payment_date; ?></strong>
+														<?php }  if( !empty($rider_name) ){ ?>
+															<span>Person Name</span>
+															<strong><?php echo $rider_name; ?></strong>
+														<?php }  if( !empty($rider_email) ){ ?>
+															<span>Email Address</span>
+															<strong><?php echo $rider_email; ?></strong>
+														<?php }  if( !empty($rider_phone) ){ ?>
+															<span>Phone Number</span>
+															<strong><?php echo $rider_phone; ?></strong>
+														<?php }  if( !empty($rider_phone) ){  ?>
+															<span>Selected Ride Car</span>
+															<strong><?php echo $ride_car; ?></strong>
+														<?php } ?>
+														</div>	
+													</div>
 												</div>
 											</div>
+											<!--End Payment Info-->
+											<!--Start Invoice Line Items-->
+											<div class="line-items">
+												<div class="invoice-header">
+													<div class="row">
+														<div class="col-md-5 col-sm-5">
+															<h5>Trip Info</h5>
+														</div>
+														<div class="col-md-4 col-sm-4">
+															<h5>Trip Estimation</h5>
+														</div>
+														<div class="col-md-3 col-sm-3">
+															<h5>Total Amount</h5>
+														</div>
+													</div>
+												</div>
+												<div class="items">
+													<div class="invoice-item">
+														<div class="col-md-5 col-sm-5">
+															<div class="ride-info">
+																<span><?php echo $trip_info; ?></span>
+															</div>
+														</div>
+														<div class="col-md-4 col-sm-4">
+															<div class="ride-info">
+																<span><?php echo $trip_duration; ?></span>
+															</div>
+														</div>
+														<div class="col-md-3 col-sm-3">
+															<div class="ride-info">
+																<span><?php echo $ride_amount.' '.$ride_amount_curr; ?> </span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--End Invoice Line Items-->
 										</div>
-										<div class="clear"></div>
-										<div class="col-md-12 col-sm-12">
-											<p class="ride-terms">I understand and agree with the <a href="policy.html">Terms</a> of Service and Cancellation </p>
-											<label for="book_terms">
-												<input name="book_terms" id="book_terms" type="checkbox" checked>
-											</label>
+										<!--End Invoice Content-->
+										<?php 
+
+											// Set Email Headers
+											if (FROM_EMAIL !== '') {
+												$headers .= 'From: '.FROM_EMAIL."\r\n";
+											}
+											$headers .= 'Reply-To: '.$rider_email."\r\n";
+											$headers .= "CC: ".$rider_email.""."\r\n";
+											$headers .= 'Content-Type: text/plain; charset=UTF-8'."\r\n";
+											// Get user browser info
+											$browser_info = getBrowser();
+
+											/* Formatting Email Message */
+											$title = 'New Ride Payment Booking Confirmation from '.$rider_name;
+											$message = 
+											'You have received a new ride booking from your website. Check details below:'."\n\n"
+											.'Rider IP Address: '.getIpInfo()."\n"
+											.'Rider Browser: '.$browser_info['name']."\n"
+											.'Rider Browser User Agent: '.$browser_info['userAgent']."\n"
+											.'Rider Name: '.$rider_name."\n"
+											.'Rider Email: '.$rider_email."\n"
+											.'Rider Phone Number: '.$rider_phone."\n"
+											.'Rider Selected Car: '.$ride_car."\n"
+											.'******Booking Detail******'."\n"
+											."Booking Reference ID: ".$booking_id."\n"
+											."Booking Info: ".$trip_note."\n"
+											."Trip Estimation: ".$trip_duration."\n"
+											.'******Payment Detail******'."\n"
+											.'Transaction ID: '.$transaction_id."\n"
+											.'Amount Paid: '.$ride_amount.' '.$ride_amount_curr."\n"
+											.'Payer Email: '.$payer_email."\n"
+											.'Payment Date: '.$payment_date."\n"
+											.'Payment Status: '.$payment_status."\n";
+
+											// Send Mail
+											$sendEmail = mail(TO_EMAIL, $title, $message, $headers);
+
+											// Unset Cookie Values
+											unset($_COOKIE['book_ref']);
+											unset($_COOKIE['start_loc']);
+											unset($_COOKIE['end_loc']);
+											unset($_COOKIE['pickup_date']);
+											unset($_COOKIE['pickup_time']);
+											unset($_COOKIE['dropoff_date']);
+											unset($_COOKIE['dropoff_time']);
+											unset($_COOKIE['service_type']);
+											unset($_COOKIE['trip_time']);
+											unset($_COOKIE['trip_cost']);
+											unset($_COOKIE['selected_car']);
+
+										} /* end of success condition */
+										?>
+										<!--Start Invoice Footer-->
+										<div class="invoice-footer">
+										<?php if(!empty($trip_note)){ ?>
+											<strong class="ride-note">Note: <?php echo rawurldecode($trip_note);?></strong>
+										<?php } if($sendEmail){ ?>
+										<div class="booking-msg">
+											<strong class="email-msg">Booking confirmed email sent successfully :)</strong>
 										</div>
-										<div class="col-md-12 col-sm-12">
-											<button type="submit" class="book-btn">Next Step <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+										<?php
+											}
+										?>
+											<a href="home-1.html"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to Home</a>
 										</div>
-									</form>
+										<!--End Invoice Footer-->
+									</div>
 								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-12">
-							<div class="booking-summary">
-								<h3>Booking Summary</h3>
-								<ul class="booking-info">
-									<li><span>Booking Reference: </span><div class="book-ref"></div></li>
-									<li><span>Journey Type: </span>
-									<div class="service_type"></div></li>
-									<li><span>Selected Ride Car:</span>
-									<div class="ride_car">Select Ride Car</div></li>
-								</ul>
-								<div class="journey-info">
-									<h4	class="service_type">Select Service Type</h4>
-								</div>
-								<ul class="service-info">
-									<li><span>From: </span><div class="startup_loc info-outer">Enter Startup Location</div></li>
-									<li><span>To: </span><div class="end_loc info-outer">Enter Destination</div></li>
-									<li><span>Pickup Date: </span><div class="pick_date info-outer">Enter Pickup Date</div></li>
-									<li><span>Pickup Time: </span><div class="pick_time info-outer">Enter Pickup Time</div></li>
-									<li><span>Dropoff Date: </span><div class="drop_date info-outer">Enter Dropoff Date</div></li>
-									<li><span>Dropoff Time: </span><div class="drop_time info-outer">Enter Dropoff Time</div></li>
-								</ul>
-							</div>
+							</div>    
 						</div>
 					</div>
 				</div>
@@ -432,12 +570,9 @@
 		<!-- Js Files Start --> 
 		<script src="js/jquery-1.12.5.min.js"></script>
 		<script src="js/bootstrap.min.js"></script> 
-		<script src="js/moment.js"></script> 
-		<script src="js/bootstrap-datetimepicker.min.js"></script> 
-		<script src="js/jquery.validate.min.js"></script> 
 		<script src="js/migrate.js"></script>  
-		<script src="js/color-switcher.js"></script>	
 		<script src="js/tweetie.js"></script> 
+		<script src="js/color-switcher.js"></script>
 		<script src="js/custom.js"></script> 
 		<!-- Js Files End --> 
 	</body>

@@ -8,9 +8,9 @@
 
         <!-- Css Files Start -->
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/fontawesome-all.min.css" rel="stylesheet">
+		<link href="css/icomoon.css" rel="stylesheet">
 		<link id="switcher" href="css/color.css" rel="stylesheet">
 		<link href="css/color-switcher.css" rel="stylesheet">
 		<link href="css/responsive.css" rel="stylesheet">
@@ -92,6 +92,7 @@
 						<!--Toprow Content End-->
 					</div>
 				</div>
+				
 				<div class="tj-nav-row">
 					<div class="container">
 						<div class="row">
@@ -127,8 +128,8 @@
 										</li>
 										<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Fleets<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="dropdown-menu">
-												<li><a href="fleet-grid.html">Fleet Grid</a></li>
-												<li><a href="fleet-list.html">Fleet Listing</a></li>
+												<li><a href="fleet-grid.html">Car Fleet Grid</a></li>
+												<li><a href="fleet-list.html">Car Fleet List</a></li>
 												<li><a href="fleet-detail.html">Fleet Detail</a></li>
 											</ul>
 										</li>
@@ -136,7 +137,7 @@
 											<ul class="dropdown-menu">
 												<li><a href="blog.html">Our Blog</a></li>
 												<li><a href="blog-list.html">Blog List</a></li>
-												<li><a href="blog-detail.html">Blog Detail</a></li>
+												<li><a href="blog-detail.html">Blog Detail</a></li>	
 											</ul>
 										</li>
 										<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages<i class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -175,7 +176,7 @@
 			<!--Inner Banner Section Start-->
 	    	<div class="tj-inner-banner">
 	    		<div class="container">
-	    			<h2>Booking Form</h2>
+	    			<h2>User Account</h2>
 	    		</div>
 	    	</div>
 			<!--Inner Banner Section End-->
@@ -185,128 +186,102 @@
 				<div class="container">
 					<ul class="breadcrumb-list">
 						<li><a href="home-1.html">Home</a></li>
-						<li class="active">Booking Form</li>
+						<li class="active">User Account</li>
 					</ul>
 				</div>
 	    	</div>
-			<!--Breadcrumb Section End-->	
+			<!--Breadcrumb Section End-->
 			
-			<!--Booking Form Section Start-->	
-			<section class="tj-booking-frm">
+			
+			<!--User Account Section Start-->	
+			<section class="tj-account-frm">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-sm-12">
+						<div class="col-md-12 col-sm-12">
 							<div class="tj-tabs">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="active"><a href="#point" data-toggle="tab">Point to Point</a></li>
+									<li class="active"><a href="#user_account" data-toggle="tab"><i class="far fa-user"></i> My Account</a></li>
+									<li><a href="#booking_history" data-toggle="tab">
+									<i class="far fa-chart-bar"></i> Booking History</a></li>
+									<li><a href="#payment_history" data-toggle="tab"><i class="far fa-credit-card"></i> Payment History</a></li>
+									<li><a href="#cancel_booking" data-toggle="tab"><i class="fas fa-times"></i> Cancel Booking</a></li>
+									<li><a href="#Logout" data-toggle="tab"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 								</ul>
 							</div>
 							<div class="tab-content">
-								<div class="tab-pane active" id="point">
-									<form class="booking-frm" method="POST" id="ride-bform">
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<label for="one_way">
-													<input type="radio" name="service_type" id="one_way" checked value="One Way Journey">One Way
-												</label>
-												<label for="two_way">
-													<input type="radio" name="service_type" id="two_way" value="Two Way Journey">Two Way
-												</label>
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Picking Up</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input id="point_start_loc" type="text" name="pickup_loc" placeholder="Pickup Location">
+								<div class="tab-pane active" id="confirm_booking">
+									<form class="account-frm" method="POST">
+										<div class="col-md-6 col-sm-6">
+											<div class="account-field">
+												<label>First Name</label>
+												<span class="far fa-user"></span>
+												<input type="text" name="fname" placeholder="Enter First Name">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="pickup_date" placeholder="Select your Date" id="pickup_date">
+											<div class="account-field">
+												<label>Last Name</label>
+												<span class="far fa-user"></span>
+												<input type="text" name="lname" placeholder="Enter Last Name">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="pickup_time" placeholder="Select Timings" id="pickup_time">
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Dropoff</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input type="text" id="point_end_loc" name="dropoff_loc" placeholder="Pickup Location">
+											<div class="account-field">
+												<label>Phone</label>
+												<span class="icon-phone icomoon"></span>
+												<input type="tel" name="phone_num" placeholder="Enter Phone Number">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="dropoff_date" id="dropoff_date" placeholder="Select your Date">
+											<div class="account-field">
+												<label>Email</label>
+												<span class="far fa-envelope"></span>
+												<input type="email" name="email_id" placeholder="Enter Email id">
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="account-field">
+												<label>Old Password</label>
+												<span class="fas fa-lock"></span>
+												<input type="password" name="old_pass" placeholder="Password">
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="account-field">
+												<label>New Password</label>
+												<span class="fas fa-lock"></span>
+												<input type="password" name="new_pass" placeholder="Password">
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="account-field">
+												<label>Confirm Password</label>
+												<span class="fas fa-lock"></span>
+												<input type="password" name="confirm_pass" placeholder="Password">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="dropoff_time" placeholder="Select Timings" id="dropoff_time" >
+											<div class="account-field">
+												<label>Profile Image</label>
+												<button class="file-btn"><i class="fas fa-download"></i> Upload Photo</button>
+												<span class="limit">Maximum file size : 6MB </span>
 											</div>
 										</div>
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<div class="car-list">
-													<select name="car_name" id="car_list" class="selectpicker">
-														<option value="">Select Car</option>
-														<option value="Nissan Vela" data-hrrate="30" data-dayrate="150">Nissan Vela</option>
-														<option value="BMW Sedan" data-hrrate="40" data-dayrate="190">BMW Sedan</option>
-														<option value="Mercedes SUV" data-hrrate="65" data-dayrate="200">Mercedes SUV</option>
-														<option value="Renault Sedan" data-hrrate="20" data-dayrate="100">Renault Sedan</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="clear"></div>
-										<div class="col-md-12 col-sm-12">
-											<p class="ride-terms">I understand and agree with the <a href="policy.html">Terms</a> of Service and Cancellation </p>
-											<label for="book_terms">
-												<input name="book_terms" id="book_terms" type="checkbox" checked>
-											</label>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<button type="submit" class="book-btn">Next Step <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+										<div class="col-md-6 col-sm-6">
+											<button type="submit" class="save-btn">Save <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
 										</div>
 									</form>
 								</div>
 							</div>
 						</div>
-						
-						<div class="col-md-4 col-sm-12">
-							<div class="booking-summary">
-								<h3>Booking Summary</h3>
-								<ul class="booking-info">
-									<li><span>Booking Reference: </span><div class="book-ref"></div></li>
-									<li><span>Journey Type: </span>
-									<div class="service_type"></div></li>
-									<li><span>Selected Ride Car:</span>
-									<div class="ride_car">Select Ride Car</div></li>
-								</ul>
-								<div class="journey-info">
-									<h4	class="service_type">Select Service Type</h4>
-								</div>
-								<ul class="service-info">
-									<li><span>From: </span><div class="startup_loc info-outer">Enter Startup Location</div></li>
-									<li><span>To: </span><div class="end_loc info-outer">Enter Destination</div></li>
-									<li><span>Pickup Date: </span><div class="pick_date info-outer">Enter Pickup Date</div></li>
-									<li><span>Pickup Time: </span><div class="pick_time info-outer">Enter Pickup Time</div></li>
-									<li><span>Dropoff Date: </span><div class="drop_date info-outer">Enter Dropoff Date</div></li>
-									<li><span>Dropoff Time: </span><div class="drop_time info-outer">Enter Dropoff Time</div></li>
-								</ul>
-							</div>
-						</div>
 					</div>
 				</div>
 			</section>
-			<!--Booking Form Section End-->	
+			<!--User Account Section End-->	
+			
+			
+			
+	
 			
 			<!--Call To Action Content Start-->
 			<section class="tj-cal-to-action">
@@ -432,12 +407,9 @@
 		<!-- Js Files Start --> 
 		<script src="js/jquery-1.12.5.min.js"></script>
 		<script src="js/bootstrap.min.js"></script> 
-		<script src="js/moment.js"></script> 
-		<script src="js/bootstrap-datetimepicker.min.js"></script> 
-		<script src="js/jquery.validate.min.js"></script> 
 		<script src="js/migrate.js"></script>  
-		<script src="js/color-switcher.js"></script>	
 		<script src="js/tweetie.js"></script> 
+		<script src="js/color-switcher.js"></script>
 		<script src="js/custom.js"></script> 
 		<!-- Js Files End --> 
 	</body>

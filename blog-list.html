@@ -8,9 +8,10 @@
 
         <!-- Css Files Start -->
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
+		<link href="css/owl.carousel.css" rel="stylesheet">
 		<link href="css/fontawesome-all.min.css" rel="stylesheet">
+		<link href="css/stroke-gap.css" rel="stylesheet">
 		<link id="switcher" href="css/color.css" rel="stylesheet">
 		<link href="css/color-switcher.css" rel="stylesheet">
 		<link href="css/responsive.css" rel="stylesheet">
@@ -92,6 +93,7 @@
 						<!--Toprow Content End-->
 					</div>
 				</div>
+				
 				<div class="tj-nav-row">
 					<div class="container">
 						<div class="row">
@@ -127,8 +129,8 @@
 										</li>
 										<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Fleets<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="dropdown-menu">
-												<li><a href="fleet-grid.html">Fleet Grid</a></li>
-												<li><a href="fleet-list.html">Fleet Listing</a></li>
+												<li><a href="fleet-grid.html">Car Fleet Grid</a></li>
+												<li><a href="fleet-list.html">Car Fleet List</a></li>
 												<li><a href="fleet-detail.html">Fleet Detail</a></li>
 											</ul>
 										</li>
@@ -149,8 +151,6 @@
 												<li><a href="confirm-booking.html">Confirm Booking</a></li>
 												<li><a href="payment.html">Payment</a></li>
 												<li><a href="payment-confirmation.html">Confirm Payment</a></li>
-												<li><a href="booking-cancel.html">Booking Cancel</a></li>
-												<li><a href="user-account.html">User Account</a></li>
 											</ul>
 										</li>
 										<li>
@@ -175,7 +175,7 @@
 			<!--Inner Banner Section Start-->
 	    	<div class="tj-inner-banner">
 	    		<div class="container">
-	    			<h2>Booking Form</h2>
+	    			<h2>Blog Listing</h2>
 	    		</div>
 	    	</div>
 			<!--Inner Banner Section End-->
@@ -185,128 +185,247 @@
 				<div class="container">
 					<ul class="breadcrumb-list">
 						<li><a href="home-1.html">Home</a></li>
-						<li class="active">Booking Form</li>
+						<li class="active">Blog Listing</li>
 					</ul>
 				</div>
 	    	</div>
-			<!--Breadcrumb Section End-->	
+			<!--Breadcrumb Section End-->
 			
-			<!--Booking Form Section Start-->	
-			<section class="tj-booking-frm">
+			<!--Blog Listing Section Start-->
+			<section class="blog-list">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<div class="tj-tabs">
-								<ul class="nav nav-tabs" role="tablist">
-									<li class="active"><a href="#point" data-toggle="tab">Point to Point</a></li>
-								</ul>
-							</div>
-							<div class="tab-content">
-								<div class="tab-pane active" id="point">
-									<form class="booking-frm" method="POST" id="ride-bform">
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<label for="one_way">
-													<input type="radio" name="service_type" id="one_way" checked value="One Way Journey">One Way
-												</label>
-												<label for="two_way">
-													<input type="radio" name="service_type" id="two_way" value="Two Way Journey">Two Way
-												</label>
+						<!--Blog List Column Start-->
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<!--Blog Article Start-->
+							<article class="blog-item">
+								<div class="blog-outer">
+									<div class="blog-post video-post">
+										<figure class="blog-thumb">
+											<img src="images/blog_list_img.png" alt=""/>
+											<div class="blog-date">
+												<strong>11/20/2018</strong>
+											</div>
+											<div class="thumb-inner">
+												<a href="https://www.youtube.com/embed/HaHqBI3P1f0"><span class="icon-Play icon"></span></a>
+											</div>
+										</figure>
+										<ul class="blog_meta">
+											<li><i class="far fa-comments"></i> 20</li>
+											<li><i class="far fa-eye"></i> 10</li>
+										</ul>
+										<h3>Best Destinations To Travel</h3>
+										<div class="blog-text">
+											<p>In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business.</p>
+											<a href="#" class="tj-btn2">Read More <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+										</div>
+									</div>
+								</div>
+							</article>
+							<!--Blog Article End-->
+							<!--Blog Article Start-->
+							<article class="blog-item">
+								<div class="blog-outer">
+									<div class="blog-post">
+										<figure class="blog-thumb">
+											<img src="images/blog_list_img.png" alt=""/>
+											<div class="blog-date">
+												<strong>12/22/2018</strong>
+											</div>
+										</figure>
+										<ul class="blog_meta">
+											<li><i class="far fa-comments"></i> 20</li>
+											<li><i class="far fa-eye"></i> 10</li>
+										</ul>
+										<h3>Install App, Enjoy Free Ride</h3>
+										<div class="blog-text">
+											<p>In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business.</p>
+											<a href="#" class="tj-btn2">Read More <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+										</div>
+									</div>
+								</div>
+							</article>
+							<!--Blog Article End-->
+							<!--Blog Article Start-->
+							<article class="blog-item">
+								<div class="blog-outer">
+									<div class="blog-post slider-post">
+										<!--Blog Slider Start-->
+										<div id="blog-slider" class="owl-carousel">
+											<div class="item">
+												<img src="images/blog_list_img.png" 
+												alt="">
+											</div>
+											<div class="item">
+												<img src="images/blog_list_img.png" 
+												alt="">
+											</div>
+											<div class="item">
+												<img src="images/blog_list_img.png" 
+												alt="">
 											</div>
 										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Picking Up</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input id="point_start_loc" type="text" name="pickup_loc" placeholder="Pickup Location">
+										<!--Blog Slider End-->
+										<ul class="blog_meta">
+											<li><i class="far fa-comments"></i> 40</li>
+											<li><i class="far fa-eye"></i> 100</li>
+										</ul>
+										<h3>World Best Destinations Tour</h3>
+										<div class="blog-text">
+											<p>In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business.</p>
+											<a href="#" class="tj-btn2">Read More <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+										</div>
+									</div>
+								</div>
+							</article>
+							<!--Blog Article End-->
+							<!--Blog Article Start-->
+							<article class="blog-item">
+								<div class="blog-outer">
+									<div class="blog-post quote-post">
+										<figure class="blog-thumb">
+											<img src="images/blog_list_img.png" alt=""/>
+											<div class="blog-date">
+												<strong>10/15/2018</strong>
 											</div>
+										</figure>
+										<ul class="blog_meta">
+											<li><i class="far fa-comments"></i> 60</li>
+											<li><i class="far fa-eye"></i> 15</li>
+										</ul>
+										<h3>Einstein Famous Quote</h3>
+										<div class="blog-text">
+											<blockquote>Life is like riding a bicycle. To keep your balance you must keep moving and travelling around the world.</blockquote>
+											<a href="#" class="tj-btn2">Read More <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="pickup_date" placeholder="Select your Date" id="pickup_date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="pickup_time" placeholder="Select Timings" id="pickup_time">
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Dropoff</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input type="text" id="point_end_loc" name="dropoff_loc" placeholder="Pickup Location">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="dropoff_date" id="dropoff_date" placeholder="Select your Date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="dropoff_time" placeholder="Select Timings" id="dropoff_time" >
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<div class="car-list">
-													<select name="car_name" id="car_list" class="selectpicker">
-														<option value="">Select Car</option>
-														<option value="Nissan Vela" data-hrrate="30" data-dayrate="150">Nissan Vela</option>
-														<option value="BMW Sedan" data-hrrate="40" data-dayrate="190">BMW Sedan</option>
-														<option value="Mercedes SUV" data-hrrate="65" data-dayrate="200">Mercedes SUV</option>
-														<option value="Renault Sedan" data-hrrate="20" data-dayrate="100">Renault Sedan</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="clear"></div>
-										<div class="col-md-12 col-sm-12">
-											<p class="ride-terms">I understand and agree with the <a href="policy.html">Terms</a> of Service and Cancellation </p>
-											<label for="book_terms">
-												<input name="book_terms" id="book_terms" type="checkbox" checked>
-											</label>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<button type="submit" class="book-btn">Next Step <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-										</div>
+									</div>
+								</div>
+							</article>
+							<!--Blog Article End-->
+						</div>
+						<!--Blog List Column End-->
+						<!--Widgets Column Start-->
+						<div class="col-md-3 col-sm-4">
+							<div class="tj-sidebar-outer">
+								<!--Search Widget Start-->
+								<div class="search_widget widget">
+									<h3>Search</h3>
+									<form class="search-form">
+										<input type="text" name="s" placeholder="Search.." id="search-field">
+										<button type="submit"><i class="fas fa-search"></i></button>
 									</form>
 								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-12">
-							<div class="booking-summary">
-								<h3>Booking Summary</h3>
-								<ul class="booking-info">
-									<li><span>Booking Reference: </span><div class="book-ref"></div></li>
-									<li><span>Journey Type: </span>
-									<div class="service_type"></div></li>
-									<li><span>Selected Ride Car:</span>
-									<div class="ride_car">Select Ride Car</div></li>
-								</ul>
-								<div class="journey-info">
-									<h4	class="service_type">Select Service Type</h4>
+								<!--Search Widget End-->
+								<!--Fleet Widget Start-->
+								<div class="fleet-ad widget">
+									<h3>Special Offer</h3>
+									<div class="fleet-box">
+										<img src="images/fleet-banner.png" alt=""/>
+										<div class="ad-info">
+											<h4>Get Benifits worth</h4>
+											<strong class="price">$250</strong>
+											<h5>on booking Prime Cab</h5>
+											<div class="book_fleet">
+												<a href="contact.html">Grab Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+											</div>
+										</div>
+									</div>
 								</div>
-								<ul class="service-info">
-									<li><span>From: </span><div class="startup_loc info-outer">Enter Startup Location</div></li>
-									<li><span>To: </span><div class="end_loc info-outer">Enter Destination</div></li>
-									<li><span>Pickup Date: </span><div class="pick_date info-outer">Enter Pickup Date</div></li>
-									<li><span>Pickup Time: </span><div class="pick_time info-outer">Enter Pickup Time</div></li>
-									<li><span>Dropoff Date: </span><div class="drop_date info-outer">Enter Dropoff Date</div></li>
-									<li><span>Dropoff Time: </span><div class="drop_time info-outer">Enter Dropoff Time</div></li>
-								</ul>
+								<!--Fleet Widget End-->
+								<!--Tags Widget Start-->
+								<div class="tagCloud widget">
+									<h3>Tags Cloud</h3>
+									<div class="tags">
+										<a href="#">Taxi</a>
+										<a href="#">Car Booking</a>
+										<a href="#">Taxi Service</a>
+										<a href="#">Rental Car</a>
+										<a href="#">Online Taxi</a>
+										<a href="#">Cabs</a>
+										<a href="#">Rental Service</a>
+										<a href="#">Prime Cabs</a>
+										<a href="#">Cars</a>
+										<a href="#">Taxi Booking</a>
+										<a href="#">Online Booking</a>
+									</div>
+								</div>
+								<!--Tags Widget End-->
+								<!--News Widget Start-->
+								<div class="recent-post widget">
+									<h3>Recent News</h3>
+									<div class="recent-news">
+										<ul>
+											<li>
+												<figure>
+													<a href="#"><img src="images/news_thumb.png" alt=""/></a>
+												</figure>
+												<div class="detail-box">
+													<h4><a href="#">Book Taxi Online</a></h4>
+													<span><i class="far fa-calendar-alt"></i> Nov 12, 2018</span>
+												</div>
+											</li>
+											<li>
+												<figure>
+													<a href="#"><img src="images/news_thumb.png" alt=""/></a>
+												</figure>
+												<div class="detail-box">
+													<h4><a href="#">Best Desinations</a></h4>
+													<span><i class="far fa-calendar-alt"></i> Nov 22, 2018</span>
+												</div>
+											</li>
+											<li>
+												<figure>
+													<a href="#"><img src="images/news_thumb.png" alt=""/></a>
+												</figure>
+												<div class="detail-box">
+													<h4><a href="#">Enjoy Cheap Ride </a></h4>
+													<span><i class="far fa-calendar-alt"></i> Nov 24, 2018</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!--News Widget End-->
+								<!--Categories Widget Start-->
+								<div class="categroies widget">
+									<h3>Categories</h3>
+									<ul class="cats">
+										<li><a href="#">Booking</a>(2)</li>
+										<li><a href="#">Tourism</a>(5)</li>
+										<li><a href="#">Travel</a>(2)</li>
+										<li><a href="#">Best Cars</a>(3)</li>
+										<li><a href="#">Fleet Rates</a>(4)</li>
+										<li><a href="#">Cabs</a>(2)</li>
+									</ul>
+								</div>
+								<!--Categories Widget End-->
 							</div>
 						</div>
+						<!--Pagination Box Section Start-->
+						<div class="pagination-box">
+							<nav aria-label="navigation">
+								<ul class="pagination">
+									<li>
+									  <a href="#" aria-label="Previous">
+										<i class="fas fa-angle-double-left"></i>
+									  </a>
+									</li>
+									<li><a href="#">1</a></li>
+									<li class="active"><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li>
+									  <a href="#" aria-label="Next">
+										<i class="fas fa-angle-double-right"></i>
+									  </a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<!--Pagination Box Section End-->
 					</div>
 				</div>
 			</section>
-			<!--Booking Form Section End-->	
+			<!--Blog Listing Section End-->
 			
 			<!--Call To Action Content Start-->
 			<section class="tj-cal-to-action">
@@ -432,11 +551,9 @@
 		<!-- Js Files Start --> 
 		<script src="js/jquery-1.12.5.min.js"></script>
 		<script src="js/bootstrap.min.js"></script> 
-		<script src="js/moment.js"></script> 
-		<script src="js/bootstrap-datetimepicker.min.js"></script> 
-		<script src="js/jquery.validate.min.js"></script> 
-		<script src="js/migrate.js"></script>  
+		<script src="js/owl.carousel.min.js"></script>	
 		<script src="js/color-switcher.js"></script>	
+		<script src="js/migrate.js"></script>  
 		<script src="js/tweetie.js"></script> 
 		<script src="js/custom.js"></script> 
 		<!-- Js Files End --> 

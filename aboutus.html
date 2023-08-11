@@ -8,11 +8,13 @@
 
         <!-- Css Files Start -->
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
+		<link href="css/owl.carousel.css" rel="stylesheet">
 		<link href="css/fontawesome-all.min.css" rel="stylesheet">
 		<link id="switcher" href="css/color.css" rel="stylesheet">
 		<link href="css/color-switcher.css" rel="stylesheet">
+		<link href="css/icomoon.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
 		<link href="css/responsive.css" rel="stylesheet">
 		<!-- Css Files End -->
 		
@@ -92,6 +94,7 @@
 						<!--Toprow Content End-->
 					</div>
 				</div>
+				
 				<div class="tj-nav-row">
 					<div class="container">
 						<div class="row">
@@ -127,8 +130,8 @@
 										</li>
 										<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Fleets<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="dropdown-menu">
-												<li><a href="fleet-grid.html">Fleet Grid</a></li>
-												<li><a href="fleet-list.html">Fleet Listing</a></li>
+												<li><a href="fleet-grid.html">Car Fleet Grid</a></li>
+												<li><a href="fleet-list.html">Car Fleet List</a></li>
 												<li><a href="fleet-detail.html">Fleet Detail</a></li>
 											</ul>
 										</li>
@@ -175,7 +178,7 @@
 			<!--Inner Banner Section Start-->
 	    	<div class="tj-inner-banner">
 	    		<div class="container">
-	    			<h2>Booking Form</h2>
+	    			<h2>Aboutus</h2>
 	    		</div>
 	    	</div>
 			<!--Inner Banner Section End-->
@@ -185,129 +188,229 @@
 				<div class="container">
 					<ul class="breadcrumb-list">
 						<li><a href="home-1.html">Home</a></li>
-						<li class="active">Booking Form</li>
+						<li class="active">Aboutus</li>
 					</ul>
 				</div>
 	    	</div>
-			<!--Breadcrumb Section End-->	
+			<!--Breadcrumb Section End-->
 			
-			<!--Booking Form Section Start-->	
-			<section class="tj-booking-frm">
+			<!--About Facts Section Start-->
+			<section class="tj-aboutus">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<div class="tj-tabs">
-								<ul class="nav nav-tabs" role="tablist">
-									<li class="active"><a href="#point" data-toggle="tab">Point to Point</a></li>
-								</ul>
-							</div>
-							<div class="tab-content">
-								<div class="tab-pane active" id="point">
-									<form class="booking-frm" method="POST" id="ride-bform">
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<label for="one_way">
-													<input type="radio" name="service_type" id="one_way" checked value="One Way Journey">One Way
-												</label>
-												<label for="two_way">
-													<input type="radio" name="service_type" id="two_way" value="Two Way Journey">Two Way
-												</label>
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Picking Up</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input id="point_start_loc" type="text" name="pickup_loc" placeholder="Pickup Location">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="pickup_date" placeholder="Select your Date" id="pickup_date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="pickup_time" placeholder="Select Timings" id="pickup_time">
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Dropoff</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input type="text" id="point_end_loc" name="dropoff_loc" placeholder="Pickup Location">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="dropoff_date" id="dropoff_date" placeholder="Select your Date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="dropoff_time" placeholder="Select Timings" id="dropoff_time" >
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<div class="car-list">
-													<select name="car_name" id="car_list" class="selectpicker">
-														<option value="">Select Car</option>
-														<option value="Nissan Vela" data-hrrate="30" data-dayrate="150">Nissan Vela</option>
-														<option value="BMW Sedan" data-hrrate="40" data-dayrate="190">BMW Sedan</option>
-														<option value="Mercedes SUV" data-hrrate="65" data-dayrate="200">Mercedes SUV</option>
-														<option value="Renault Sedan" data-hrrate="20" data-dayrate="100">Renault Sedan</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="clear"></div>
-										<div class="col-md-12 col-sm-12">
-											<p class="ride-terms">I understand and agree with the <a href="policy.html">Terms</a> of Service and Cancellation </p>
-											<label for="book_terms">
-												<input name="book_terms" id="book_terms" type="checkbox" checked>
-											</label>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<button type="submit" class="book-btn">Next Step <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-										</div>
-									</form>
+						<div class="col-md-6 col-sm-7">
+							<div class="about-info bounceInLeft animated delay-2s">
+								<div class="tj-heading-style">
+									<h3>Who We Are</h3>
 								</div>
+								<p>Lorem Ipsum passages, and more recently with desktop publishing software like aldus pageMaker including versions of all the Lorem Ipsum generators on thet Internet tends to repeat predefined chunks as necessary, making this an web evolved over the years, sometimes by accident.</p>
+								<a href="fleet-list.html">See all Vehicles<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+								<ul class="facts-list">
+									<li>
+										<strong class="fact-count">100</strong>
+										<i class="fa fa-percent"></i>
+										<span>Happy Customer</span>
+									</li>
+									<li>
+										<strong class="fact-count">200</strong>
+										<i class="fas fa-plus"></i>
+										<span>Luxury Cars</span>
+									</li>
+									<li>
+										<strong class="fact-count">12,000</strong>
+										<i class="fas fa-arrow-up"></i>
+										<span>Kilometers Driven</span>
+									</li>
+								</ul>
 							</div>
 						</div>
-						
-						<div class="col-md-4 col-sm-12">
-							<div class="booking-summary">
-								<h3>Booking Summary</h3>
-								<ul class="booking-info">
-									<li><span>Booking Reference: </span><div class="book-ref"></div></li>
-									<li><span>Journey Type: </span>
-									<div class="service_type"></div></li>
-									<li><span>Selected Ride Car:</span>
-									<div class="ride_car">Select Ride Car</div></li>
-								</ul>
-								<div class="journey-info">
-									<h4	class="service_type">Select Service Type</h4>
-								</div>
-								<ul class="service-info">
-									<li><span>From: </span><div class="startup_loc info-outer">Enter Startup Location</div></li>
-									<li><span>To: </span><div class="end_loc info-outer">Enter Destination</div></li>
-									<li><span>Pickup Date: </span><div class="pick_date info-outer">Enter Pickup Date</div></li>
-									<li><span>Pickup Time: </span><div class="pick_time info-outer">Enter Pickup Time</div></li>
-									<li><span>Dropoff Date: </span><div class="drop_date info-outer">Enter Dropoff Date</div></li>
-									<li><span>Dropoff Time: </span><div class="drop_time info-outer">Enter Dropoff Time</div></li>
-								</ul>
+						<div class="col-md-6 col-sm-5">
+							<div class="about-banner bounceInRight animated delay-2s">
+								<img src="images/about-img.png" alt=""/>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<!--Booking Form Section End-->	
+			<!--About Facts Section End-->
 			
+			<!--Partners Section Start-->
+			<section class="tj-clients">
+				<div class="container">
+					<!--Partners List Section Start-->
+					<div class="partners-list">
+						<div class="partner-item">
+							<a href="#"><img src="images/client-logo1.png" alt=""></a>
+						</div>
+						<div class="partner-item">
+							<a href="#"><img src="images/client-logo2.png" alt=""></a>
+						</div>
+						<div class="partner-item">
+							<a href="#"><img src="images/client-logo3.png" alt=""></a>
+						</div>
+						<div class="partner-item">
+							<a href="#"><img src="images/client-logo4.png" alt=""></a>
+						</div>
+						<div class="partner-item">
+							<a href="#"><img src="images/client-logo5.png" alt=""></a>
+						</div>
+					</div>
+					<!--Partners List Section End-->
+				</div>
+			</section>
+			<!-- Partners Section End-->
+			
+			<!--Testimonials Section Start-->
+			<section class="tj-reviews">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="tj-heading-style">
+								<h3>Testimonials</h3>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div id="testimonial-slider" class="reviews-slider">
+								<div class="review-item">
+									<figure class="img-box">
+										<img src="images/testimonial-img.png" alt="" />
+									</figure>
+									<div class="review-info">
+										<strong>James Peter</strong>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon"></span>
+										<div class="review-quote">
+											<p>Lorem Ipsum passages, and more recently with desktop publish soft like aldus pageMaker including versions</p>
+										</div>
+									</div>
+								</div>
+								<div class="review-item">
+									<figure class="img-box">
+										<img src="images/testimonial-img.png" alt="" />
+									</figure>
+									<div class="review-info">
+										<strong>Stefy Grafi</strong>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon"></span>
+										<div class="review-quote">
+											<p>Lorem Ipsum passages, and more recently with desktop publish soft like aldus pageMaker including versions</p>
+										</div>
+									</div>
+								</div>
+								<div class="review-item">
+									<figure class="img-box">
+										<img src="images/testimonial-img.png" alt="" />
+									</figure>
+									<div class="review-info">
+										<strong>James Peter</strong>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon rating"></span>
+										<span class="icon-star-empty icomoon"></span>
+										<div class="review-quote">
+											<p>Lorem Ipsum passages, and more recently with desktop publish soft like aldus pageMaker including versions</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!--Testimonials Section End-->
+			
+			<!--Team Section Start-->
+			<section class="tj-team slideInLeft animated delay-3s">
+				<div class="container">
+					<div class="row">
+						<div class="tj-heading-style">
+							<h3>Our Drivers</h3>
+							<p>Lorem Ipsum passages, and more recently with desktop publishing software like aldus</p>
+						</div>
+						<div class="col-md-3 col-sm-3">
+							<div class="member-box">
+								<figure class="member-img">
+									<img src="images/team-img.png" alt=""/>
+									<div class="member-overlay">
+										<ul>
+											<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+											<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										</ul>
+									</div>
+								</figure>
+								<div class="member-info">
+									<strong class="name">John Martin</strong>
+									<span>Luxury Driver</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3">
+							<div class="member-box">
+								<figure class="member-img">
+									<img src="images/team-img.png" alt=""/>
+									<div class="member-overlay">
+										<ul>
+											<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+											<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										</ul>
+									</div>
+								</figure>
+								<div class="member-info">
+									<strong class="name">Paul Heyman</strong>
+									<span>Van Driver</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3">
+							<div class="member-box">
+								<figure class="member-img">
+									<img src="images/team-img.png" alt=""/>
+									<div class="member-overlay">
+										<ul>
+											<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+											<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										</ul>
+									</div>
+								</figure>
+								<div class="member-info">
+									<strong class="name">Dwayne Johnson</strong>
+									<span>Limo Driver</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3">
+							<div class="member-box">
+								<figure class="member-img">
+									<img src="images/team-img.png" alt=""/>
+									<div class="member-overlay">
+										<ul>
+											<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+											<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										</ul>
+									</div>
+								</figure>
+								<div class="member-info">
+									<strong class="name">Fernandez</strong>
+									<span>Suv Driver</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--Team Section End-->
+
 			<!--Call To Action Content Start-->
 			<section class="tj-cal-to-action">
 				<div class="container">
@@ -432,13 +535,13 @@
 		<!-- Js Files Start --> 
 		<script src="js/jquery-1.12.5.min.js"></script>
 		<script src="js/bootstrap.min.js"></script> 
-		<script src="js/moment.js"></script> 
-		<script src="js/bootstrap-datetimepicker.min.js"></script> 
-		<script src="js/jquery.validate.min.js"></script> 
 		<script src="js/migrate.js"></script>  
+		<script src="js/owl.carousel.min.js"></script>	
 		<script src="js/color-switcher.js"></script>	
-		<script src="js/tweetie.js"></script> 
-		<script src="js/custom.js"></script> 
+		<script src="js/jquery.counterup.min.js"></script>	
+		<script src="js/waypoints.min.js"></script>
+		<script src="js/tweetie.js"></script>
+		<script src="js/custom.js"></script>
 		<!-- Js Files End --> 
 	</body>
 </html>

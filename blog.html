@@ -8,7 +8,6 @@
 
         <!-- Css Files Start -->
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/fontawesome-all.min.css" rel="stylesheet">
 		<link id="switcher" href="css/color.css" rel="stylesheet">
@@ -92,6 +91,7 @@
 						<!--Toprow Content End-->
 					</div>
 				</div>
+				
 				<div class="tj-nav-row">
 					<div class="container">
 						<div class="row">
@@ -127,8 +127,8 @@
 										</li>
 										<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Fleets<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="dropdown-menu">
-												<li><a href="fleet-grid.html">Fleet Grid</a></li>
-												<li><a href="fleet-list.html">Fleet Listing</a></li>
+												<li><a href="fleet-grid.html">Car Fleet Grid</a></li>
+												<li><a href="fleet-list.html">Car Fleet List</a></li>
 												<li><a href="fleet-detail.html">Fleet Detail</a></li>
 											</ul>
 										</li>
@@ -175,7 +175,7 @@
 			<!--Inner Banner Section Start-->
 	    	<div class="tj-inner-banner">
 	    		<div class="container">
-	    			<h2>Booking Form</h2>
+	    			<h2>Blog</h2>
 	    		</div>
 	    	</div>
 			<!--Inner Banner Section End-->
@@ -185,128 +185,208 @@
 				<div class="container">
 					<ul class="breadcrumb-list">
 						<li><a href="home-1.html">Home</a></li>
-						<li class="active">Booking Form</li>
+						<li class="active">Blog</li>
 					</ul>
 				</div>
 	    	</div>
-			<!--Breadcrumb Section End-->	
+			<!--Breadcrumb Section End-->
 			
-			<!--Booking Form Section Start-->	
-			<section class="tj-booking-frm">
+			<!--News Content Start-->
+			<section class="tj-news">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<div class="tj-tabs">
-								<ul class="nav nav-tabs" role="tablist">
-									<li class="active"><a href="#point" data-toggle="tab">Point to Point</a></li>
-								</ul>
-							</div>
-							<div class="tab-content">
-								<div class="tab-pane active" id="point">
-									<form class="booking-frm" method="POST" id="ride-bform">
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<label for="one_way">
-													<input type="radio" name="service_type" id="one_way" checked value="One Way Journey">One Way
-												</label>
-												<label for="two_way">
-													<input type="radio" name="service_type" id="two_way" value="Two Way Journey">Two Way
-												</label>
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Picking Up</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input id="point_start_loc" type="text" name="pickup_loc" placeholder="Pickup Location">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="pickup_date" placeholder="Select your Date" id="pickup_date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="pickup_time" placeholder="Select Timings" id="pickup_time">
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<strong>Dropoff</strong>
-											<div class="field-holder">
-												<span class="fas fa-map-marker-alt"></span>
-												<input type="text" id="point_end_loc" name="dropoff_loc" placeholder="Pickup Location">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="fas fa-calendar-alt"></span>
-												<input type="text" name="dropoff_date" id="dropoff_date" placeholder="Select your Date">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="field-holder">
-												<span class="far fa-clock"></span>
-												<input type="text" name="dropoff_time" placeholder="Select Timings" id="dropoff_time" >
-											</div>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<div class="field-holder">
-												<div class="car-list">
-													<select name="car_name" id="car_list" class="selectpicker">
-														<option value="">Select Car</option>
-														<option value="Nissan Vela" data-hrrate="30" data-dayrate="150">Nissan Vela</option>
-														<option value="BMW Sedan" data-hrrate="40" data-dayrate="190">BMW Sedan</option>
-														<option value="Mercedes SUV" data-hrrate="65" data-dayrate="200">Mercedes SUV</option>
-														<option value="Renault Sedan" data-hrrate="20" data-dayrate="100">Renault Sedan</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="clear"></div>
-										<div class="col-md-12 col-sm-12">
-											<p class="ride-terms">I understand and agree with the <a href="policy.html">Terms</a> of Service and Cancellation </p>
-											<label for="book_terms">
-												<input name="book_terms" id="book_terms" type="checkbox" checked>
-											</label>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<button type="submit" class="book-btn">Next Step <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-										</div>
-									</form>
-								</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="tj-heading-style">
+								<h3>Our Blog</h3>
+								<p>Lorem Ipsum passages, and more recently with desktop publishing software like aldus pageMaker including versions.</p>
 							</div>
 						</div>
-						
+						<!--Newsbox Content Start-->
+						<div class="col-md-4 col-sm-6">
+							<div class="news-box">
+								<!--Newsbox Thumb Start-->
+								<figure>
+									<img src="images/news_img.png" alt=""/>
+								</figure>
+								<!--Newsbox Thumb End-->
+								<!--News Detail Content Start-->
+								<div class="news-detail">
+									<h4>Repeat predefined chunks</h4>
+									<p>A more recently with desktop softy like aldo page maker repeat predefined.</p>
+									<ul>
+										<li><i class="far fa-clock"></i> Sep 19, 2018</li>
+										<li><i class="far fa-comments"></i> 29</li>
+									</ul>
+								</div>
+								<!--News Detail Content End-->
+							</div>
+						</div>
+						<!--Newsbox Content End-->
+						<!--Newsbox Content Start-->
+						<div class="col-md-4 col-sm-6">
+							<div class="news-box">
+								<!--Newsbox Thumb Start-->
+								<figure>
+									<img src="images/news_img.png" alt=""/>
+								</figure>
+								<!--Newsbox Thumb End-->
+								<!--News Detail Content Start-->
+								<div class="news-detail">
+									<h4>Making it look readable</h4>
+									<p>A more recently with desktop softy like aldo page maker repeat predefined.</p>
+									<ul>
+										<li><i class="far fa-clock"></i> Sep 19, 2018</li>
+										<li><i class="far fa-comments"></i> 29</li>
+									</ul>
+								</div>
+								<!--News Detail Content End-->
+							</div>
+						</div>
+						<!--Newsbox Content End-->
+						<!--News List Content Start-->
 						<div class="col-md-4 col-sm-12">
-							<div class="booking-summary">
-								<h3>Booking Summary</h3>
-								<ul class="booking-info">
-									<li><span>Booking Reference: </span><div class="book-ref"></div></li>
-									<li><span>Journey Type: </span>
-									<div class="service_type"></div></li>
-									<li><span>Selected Ride Car:</span>
-									<div class="ride_car">Select Ride Car</div></li>
+							<div class="news-list">
+								<!--News Outer Content Start-->
+								<ul class="news-outer">
+									<li>
+										<figure>
+											<img src="images/news_thumb.png" alt=""/>
+										</figure>
+										<div class="news-info">
+											<h4>Various versions have evole over the years</h4>
+											<ul class="news-meta">
+												<li><i class="far fa-clock"></i> Sep 19, 2018</li>
+												<li><i class="far fa-comments"></i> 29</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<figure>
+											<img src="images/news_thumb.png" alt=""/>
+										</figure>
+										<div class="news-info">
+											<h4>A galley of type and scrambe it to make a type</h4>
+											<ul class="news-meta">
+												<li><i class="far fa-clock"></i> Sep 19, 2018</li>
+												<li><i class="far fa-comments"></i> 29</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<figure>
+											<img src="images/news_thumb.png" alt=""/>
+										</figure>
+										<div class="news-info">
+											<h4>Treatise on the theory of ethics very popular</h4>
+											<ul class="news-meta">
+												<li><i class="far fa-clock"></i> Sep 19, 2018</li>
+												<li><i class="far fa-comments"></i> 29</li>
+											</ul>
+										</div>
+									</li>
 								</ul>
-								<div class="journey-info">
-									<h4	class="service_type">Select Service Type</h4>
-								</div>
-								<ul class="service-info">
-									<li><span>From: </span><div class="startup_loc info-outer">Enter Startup Location</div></li>
-									<li><span>To: </span><div class="end_loc info-outer">Enter Destination</div></li>
-									<li><span>Pickup Date: </span><div class="pick_date info-outer">Enter Pickup Date</div></li>
-									<li><span>Pickup Time: </span><div class="pick_time info-outer">Enter Pickup Time</div></li>
-									<li><span>Dropoff Date: </span><div class="drop_date info-outer">Enter Dropoff Date</div></li>
-									<li><span>Dropoff Time: </span><div class="drop_time info-outer">Enter Dropoff Time</div></li>
-								</ul>
+								<!--News Outer Content End-->
 							</div>
 						</div>
+						<!--News List Content End-->
+						<div class="clear"></div>
+						
+						
+						<!--Newsbox Content Start-->
+						<div class="col-md-4 col-sm-6">
+							<div class="news-box">
+								<!--Newsbox Thumb Start-->
+								<figure>
+									<img src="images/news_img.png" alt=""/>
+								</figure>
+								<!--Newsbox Thumb End-->
+								<!--News Detail Content Start-->
+								<div class="news-detail">
+									<h4>Best Rates For Taxi Service</h4>
+									<p>A more recently with desktop softy like aldo page maker repeat predefined.</p>
+									<ul>
+										<li><i class="far fa-clock"></i> Sep 15, 2018</li>
+										<li><i class="far fa-comments"></i> 50</li>
+									</ul>
+								</div>
+								<!--News Detail Content End-->
+							</div>
+						</div>
+						<!--Newsbox Content End-->
+						<!--Newsbox Content Start-->
+						<div class="col-md-4 col-sm-6">
+							<div class="news-box">
+								<!--Newsbox Thumb Start-->
+								<figure>
+									<img src="images/news_img.png" alt=""/>
+								</figure>
+								<!--Newsbox Thumb End-->
+								<!--News Detail Content Start-->
+								<div class="news-detail">
+									<h4>Install App and get free ride</h4>
+									<p>A more recently with desktop softy like aldo page maker repeat predefined.</p>
+									<ul>
+										<li><i class="far fa-clock"></i> Sep 6, 2018</li>
+										<li><i class="far fa-comments"></i> 12</li>
+									</ul>
+								</div>
+								<!--News Detail Content End-->
+							</div>
+						</div>
+						<!--Newsbox Content End-->
+						
+						<!--News List Content Start-->
+						<div class="col-md-4 col-sm-12">
+							<div class="news-list">
+								<!--News Outer Content Start-->
+								<ul class="news-outer">
+									<li>
+										<figure>
+											<img src="images/news_thumb.png" alt=""/>
+										</figure>
+										<div class="news-info">
+											<h4>Various versions have evole over the years</h4>
+											<ul class="news-meta">
+												<li><i class="far fa-clock"></i> Sep 29, 2018</li>
+												<li><i class="far fa-comments"></i> 20</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<figure>
+											<img src="images/news_thumb.png" alt=""/>
+										</figure>
+										<div class="news-info">
+											<h4>Get cheap ride to reach where you want</h4>
+											<ul class="news-meta">
+												<li><i class="far fa-clock"></i> Apr 19, 2018</li>
+												<li><i class="far fa-comments"></i> 19</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<figure>
+											<img src="images/news_thumb.png" alt=""/>
+										</figure>
+										<div class="news-info">
+											<h4>Get taxi service nearby your home</h4>
+											<ul class="news-meta">
+												<li><i class="far fa-clock"></i> Aug 12, 2018</li>
+												<li><i class="far fa-comments"></i> 25</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+								<!--News Outer Content End-->
+							</div>
+						</div>
+						<!--News List Content End-->
+						
+						
 					</div>
 				</div>
 			</section>
-			<!--Booking Form Section End-->	
+			<!--News Content End-->
 			
 			<!--Call To Action Content Start-->
 			<section class="tj-cal-to-action">
@@ -432,9 +512,6 @@
 		<!-- Js Files Start --> 
 		<script src="js/jquery-1.12.5.min.js"></script>
 		<script src="js/bootstrap.min.js"></script> 
-		<script src="js/moment.js"></script> 
-		<script src="js/bootstrap-datetimepicker.min.js"></script> 
-		<script src="js/jquery.validate.min.js"></script> 
 		<script src="js/migrate.js"></script>  
 		<script src="js/color-switcher.js"></script>	
 		<script src="js/tweetie.js"></script> 
